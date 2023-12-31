@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const HeaderComp = () => {
-    const user = useSelector(state => state.user)
+    const user = useSelector(state => state.user.user)
     if (user == undefined) {
         return <>
             <header>

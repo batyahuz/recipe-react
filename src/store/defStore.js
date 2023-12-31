@@ -3,8 +3,9 @@ import User from "./reducerUser";
 import Recipe from './reducerRecipe';
 
 const reducers = combineReducers({
-    User: User,
+    user: User,
     recipes: Recipe
 })
+const store = createStore(reducers);
 
-export const store = createStore(reducers, applyMiddleware);
+export default store

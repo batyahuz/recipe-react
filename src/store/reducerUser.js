@@ -15,8 +15,9 @@ const initialState = {
 function UserReducer(state = initialState, action) {
     switch (action.type) {
         case actionType.SET_USER: {
-
-            return { ...state, user: action.user }
+            console.log("action ", action);
+            console.log("state ", state);
+            return { ...state, name: action.payload.Name, id: action.payload.Id }
         }
         default: {
             return { ...state }
