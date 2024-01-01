@@ -6,7 +6,7 @@ import SignIn from '../users/signin';
 import AddRecipe from '../recipes/addRecipe';
 import DeleteRecipe from '../recipes/deleteRecipe';
 import EditRecipe from '../recipes/editRecipe';
-import GetRecipes from '../recipes/editRecipe'
+import GetRecipes from '../recipes/getRecipes'
 import DisplayRecipe from '../recipes/displayRecipe';
 import AddCategory from '../categories/addCategory';
 import GetCategories from '../categories/getCategories';

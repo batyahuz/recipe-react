@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
-import MyInput from "../general/input";
+import MyInput from "../general/inputField";
 import { Form, useForm } from "react-hook-form";
 import InputPassword from "../general/inputPassword";
 import { Input } from "@mui/material";
@@ -34,11 +34,10 @@ const Signin = () => {
 
         }).then(res => {
             dispatch({ type: "SET_USER", payload: res.data });
-            // console.log(res.data);
             navigate(`/home`);
         }).catch(err => {
             console.log(err);
-            console.log(err.response.data);
+            alert(err.response.data);
         })
     }
     return <>
