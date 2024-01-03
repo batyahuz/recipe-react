@@ -7,8 +7,10 @@ const initialState = {
 
 function RecipeReducer(state = initialState, action) {
     switch (action.type) {
-        case actionType.SET_RECIPES:
+        case actionType.SET_RECIPES: {
+            console.log(action);
             return { ...state, recipes: action.payload }
+        }
         case actionType.ADD_RECIPE: {
             const recipes = [...state.recipes];
             recipes.push(action.recipe);

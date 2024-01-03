@@ -5,15 +5,18 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Input } from "@mui/material";
-import MyInput from "../general/inputField";
+import MyInput from "../general-fields/inputField";
 
 const Login = () => {
+    const { recipes } = useSelector(state => ({
+        recipes: state.recipes.recipes
+    }));
     const userSchema = yup.object({
         Username: yup.string().required("הכנס שם משתמש. זהו שדה חובה"),
         Password: yup.string().required("הכנס סיסמא. זהו שדה חובה"),
     }).required()
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(userSchema)
     });
@@ -24,11 +27,13 @@ const Login = () => {
         }).then(res => {
             dispatch({ type: "SET_USER", payload: res.data })
             console.log(res.data);
-            navigate(`/home`)
+            // navigate(`/home`)
         }).catch(err => {
             console.log(err);
-            alert(err.response.data);
+            if (err?.response?.data != undefined)
+                alert(err.response.data);
         })
+        navigate("/displayRecipes");
     };
 
     return <>
@@ -38,6 +43,7 @@ const Login = () => {
             {/* <InputPassword name="Password" register={register} errors={errors} label="סיסמא" /> */}
             <Input type="submit" />
         </form>
+        {console.log("login recipes: ", recipes)}
     </>
 }
 export default Login;

@@ -38,7 +38,8 @@ const MyInput = ({ name, nameForError, register, errors, label, helperText, mult
             <Box
                 component="form"
                 sx={{
-                    '& .MuiTextField-root': { m: 1, width: '25ch' },
+                    '& .MuiTextField-root': { m: 1, width: '98%' },
+                    // '& .MuiTextField-root': { m: 1, width: '25ch' },
                 }}
                 noValidate
                 autoComplete="off"

@@ -111,7 +111,7 @@
 
 
 // import Test_fieldArray from '../Test_fieldArray'
-import { useFieldArray, useForm} from "react-hook-form"
+import { useFieldArray, useForm } from "react-hook-form"
 import { useLocation, useNavigate } from "react-router-dom"
 import { yupResolver } from "@hookform/resolvers/yup"
 import axios from "axios"
@@ -120,7 +120,7 @@ import * as yup from "yup"
 import { useSelector, useDispatch } from "react-redux";
 // import { FormField } from 'semantic-ui-react'
 import { Button, Input, Stack } from "@mui/material"
-import MyInput from "../general/inputField"
+import MyInput from "../general-fields/inputField"
 // import SendIcon from '@mui/icons-material/Send';
 
 export default (prop) => {
@@ -276,22 +276,30 @@ export default (prop) => {
                             <MyInput type="number" name={`Ingrident.${index}.Count`} register={register} errors={errors} label="כמות" box={false} />
                             <MyInput type="text" name={`Ingrident.${index}.Type`} register={register} errors={errors} label="סוג הכמות" box={false} />
                             <Button variant="contained" onClick={() => removeIngrident(index)}>מחק מוצר</Button>
+                            {console.log("Ingredient", Ingredient)}
+                            {console.log("Instructions", Instructions)}
                         </div>
                     ))}
                 </div>
 
                 <Button variant="contained" onClick={() => appendIngrident({ Name: "", Count: 0, Type: "" })}>הוסף מוצר</Button>
+                <label>Instructions:</label>
                 <Button variant="contained" onClick={() => appendInstruction({ Inst: "" })}>הוסף הוראה</Button>
+                {/* {appendInstruction({ Inst: "" })}\
+                {appendIngrident({ Name: "", Count: 0, Type: "" })} */}
                 <div>
-                    <label>Instructions:</label>
                     {Instructions?.map((item, index) => (
                         <div key={index}>
-                            <MyInput type="text" name={`Instructions.${index}.Inst`} register={register} errors={errors} label={`${index + 1}.`} multiline={true} />
+                            {console.log("Ingredient", Ingredient)}
+                            {console.log("Instructions", Instructions)}
+                            <MyInput type="text" name={`Instructions.${index}.Inst`} register={register} errors={errors} label={`${index + 1}.`} multiline={true} box={false} />
                             <Button variant="contained" onClick={() => removeInstruction(index)}>מחק הוראה</Button>
                         </div>
                     ))}
                 </div>
-                <Input type="submit" />
+                {console.log("Ingredient", Ingredient)}
+                {console.log("Instructions", Instructions)}
+                <Input type="submit" disabled={Instructions.length == 0 || Ingredient.length == 0} />
                 {/* <input type="text" placeholder="product name:" {...register(`Ingrident.${index}.Name`)} /> */}
                 {/* <input type="number" placeholder="count:" {...register(`Ingrident.${index}.Count`)} /> */}
                 {/* <input type="text" placeholder="type:" {...register(`Ingrident.${index}.Type`)} /> */}

@@ -6,10 +6,11 @@ import SignIn from '../users/signin';
 import AddRecipe from '../recipes/addRecipe';
 import DeleteRecipe from '../recipes/deleteRecipe';
 import EditRecipe from '../recipes/editRecipe';
-import GetRecipes from '../recipes/getRecipes'
-import DisplayRecipe from '../recipes/displayRecipe';
+import DisplayRecipes from '../recipes/displayRecipes'
+// import DisplayRecipe from '../recipes/recipeCard';
 import AddCategory from '../categories/addCategory';
 import GetCategories from '../categories/getCategories';
+import SingleRecipe from "../recipes/singleRecipe";
 
 const RoutesComp = () => {
     return <Routes>
@@ -23,8 +24,9 @@ const RoutesComp = () => {
         <Route path="/addRecipe" element={<AddRecipe />} />
         <Route path="/deletRecipe" element={<DeleteRecipe />} />
         <Route path="/editRecipe" element={<EditRecipe />} />
-        <Route path="/getRecipes" element={<GetRecipes />} />
-        <Route path="/displayRecipe" element={<DisplayRecipe />} />
+        <Route path="/displayRecipes" element={<DisplayRecipes />} />
+        <Route path="/singleRecipe" element={<SingleRecipe />} />
+        {/* <Route path="/displayRecipe" element={<DisplayRecipe />} /> */}
         {/* category */}
         <Route path="/addCategory" element={<AddCategory />} />
         <Route path="/getCategories" element={<GetCategories />} />

@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
-import MyInput from "../general/inputField";
+import MyInput from "../general-fields/inputField";
 import { Form, useForm } from "react-hook-form";
-import InputPassword from "../general/inputPassword";
+import InputPassword from "../general-fields/inputPassword";
 import { Input } from "@mui/material";
 import { useDispatch } from "react-redux";
 import axios from "axios";
@@ -37,7 +37,8 @@ const Signin = () => {
             navigate(`/home`);
         }).catch(err => {
             console.log(err);
-            alert(err.response.data);
+            if (err?.response?.data != undefined)
+                alert(err.response.data);
         })
     }
     return <>
