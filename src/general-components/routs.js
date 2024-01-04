@@ -9,8 +9,8 @@ import EditRecipe from '../recipes/editRecipe';
 import DisplayRecipes from '../recipes/displayRecipes'
 // import DisplayRecipe from '../recipes/recipeCard';
 import AddCategory from '../categories/addCategory';
-import GetCategories from '../categories/getCategories';
 import SingleRecipe from "../recipes/singleRecipe";
+import FilterRecipes from "../recipes/filterRecipes";
 
 const RoutesComp = () => {
     return <Routes>
@@ -24,12 +24,11 @@ const RoutesComp = () => {
         <Route path="/addRecipe" element={<AddRecipe />} />
         <Route path="/deletRecipe" element={<DeleteRecipe />} />
         <Route path="/editRecipe" element={<EditRecipe />} />
-        <Route path="/displayRecipes" element={<DisplayRecipes />} />
+        <Route path="/displayRecipes" element={<FilterRecipes />} />
         <Route path="/singleRecipe" element={<SingleRecipe />} />
         {/* <Route path="/displayRecipe" element={<DisplayRecipe />} /> */}
         {/* category */}
         <Route path="/addCategory" element={<AddCategory />} />
-        <Route path="/getCategories" element={<GetCategories />} />
     </Routes>
 }
 export default RoutesComp;
